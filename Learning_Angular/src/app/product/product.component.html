@@ -1,15 +1,15 @@
 <h2>Product Page Component</h2>
-<p>Product name: {{name}}</p>
+<!-- <p>Product name: {{name}}</p>
 <p>Name : </p> <input type="text" [(ngModel)]="name" [title]="'This is ' + name">
 <p>Price : </p> <input type="number" [(ngModel)]="price" [title]="name + '\'s price is: ' + price">
 <br/>
-<!-- *ngIf="Condition" -->
-<!-- 
+*ngIf="Condition"
+
 <p *ngIf="price > 100000">This product is expensive!</p>
 <p *ngIf="price < 100000">This product is cheap!</p> 
--->
-<!-- *ngIf="Condition; then #template_of_true_condition else #template_of_false_condition" -->
-<!-- ng-template -->
+
+*ngIf="Condition; then #template_of_true_condition else #template_of_false_condition"
+ng-template
 <div *ngIf="price > 100000; then expensive; else cheap;"></div>
 <ng-template #expensive>
     This product is expensive!
@@ -18,4 +18,7 @@
     This product is cheap!
 </ng-template>
 <br/>
-<button (click)="resetName()">Reset</button>
+<button (click)="resetName()">Reset</button> -->
+<div *ngFor="let product of products; let i = 'index + 1'">
+    <p>{{ i }} : {{product}}</p>
+</div>
