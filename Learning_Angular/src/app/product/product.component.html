@@ -1,4 +1,6 @@
-<h2>Product Page Component</h2>
+<h2 style="text-align: center;">Product Page Component</h2>
+<br />
+<br />
 <!-- <p>Product name: {{name}}</p>
 <p>Name : </p> <input type="text" [(ngModel)]="name" [title]="'This is ' + name">
 <p>Price : </p> <input type="number" [(ngModel)]="price" [title]="name + '\'s price is: ' + price">
@@ -19,6 +21,26 @@ ng-template
 </ng-template>
 <br/>
 <button (click)="resetName()">Reset</button> -->
-<div *ngFor="let product of products; let i = 'index + 1'">
-    <p>{{ i }} : {{product}}</p>
+<div class="table100 ver1 m-b-110">
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = 'index + 1'">
+                <td>{{i}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>
+                    <span [ngClass]="{'product_quantity': product.quantity == 0}">
+                        {{product.quantity}}
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
