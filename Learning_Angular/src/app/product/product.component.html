@@ -1,5 +1,12 @@
 <h2 style="text-align: center;">Product Page Component</h2>
 <br />
+<table style="text-align: left;">
+    <tr>
+        <td>Search: </td>
+        <td><input [(ngModel)]="searchS" value={{searchS}} type="text" style="background-color: rgb(247, 247, 247);">
+        </td>
+    </tr>
+</table>
 <br />
 <!-- <p>Product name: {{name}}</p>
 <p>Name : </p> <input type="text" [(ngModel)]="name" [title]="'This is ' + name">
@@ -21,26 +28,72 @@ ng-template
 </ng-template>
 <br/>
 <button (click)="resetName()">Reset</button> -->
+<p (mouseenter)="eventIn()" (mouseleave)="eventOut()" (dblclick)="eventDblick()" (copy)="eventCopy()">{{eventV}}</p>
 <div class="table100 ver1 m-b-110">
-    <table>
+    <table (mouseenter)="tableEnter()" (mouseleave)="tableLeave()">
         <thead>
             <th>ID</th>
             <th>Name</th>
             <th>Price</th>
             <th>Quantity</th>
             <th>Action</th>
+            <th>Description</th>
         </thead>
         <tbody>
             <tr *ngFor="let product of products; let i = 'index + 1'">
-                <td>{{i}}</td>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>
-                    <span [ngClass]="{'product_quantity': product.quantity == 0}">
-                        {{product.quantity}}
-                    </span>
-                </td>
+                <ng-container *ngIf="product.name.includes(searchS) || searchS === ''">
+                    <td>{{i}}</td>
+                    <td><a routerLink="/detail-product/{{product.name}}">{{product.name}}</a></td>
+                    <!-- <td>{{product.price | currency: "VND":"symbol":"1.0"}}</td> -->
+                    <!-- {{ value_expression | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] }} -->
+                    <!-- x: Value, y: num of O appear after dot -->
+                    <!-- Value_type can search google for more information  -->
+                    <!-- ...:...:... -->
+                    <!-- Ký tự đầu : Biến : Kiểu hiển thị biến -->
+                    <!--  -->
+                    <!-- Pipe: định dạng dữ liệu cho giá trị suất ra view -->
+                    <!-- Có thể có các hàm -->
+                    <!-- Cú pháp: ng generate pine _tenPipe-->
+
+
+                    <td><input [(ngModel)]="product.price" min="0" style="text-align: center;"></td>
+                    <td>
+                        <span>
+                            <input [(ngModel)]="product.quantity" min="0"
+                                [ngClass]="{'product_quantity': product.quantity == 0}" style="text-align: center;">
+                        </span>
+                    </td>
+                    <td>
+                        <button (click)="btnClick()">Button</button>
+                    </td>
+                    <td>
+                        <span>{{ product.price| productDescription | uppercase }}</span>
+                    </td>
+                </ng-container>
             </tr>
         </tbody>
     </table>
 </div>
+
+<div>
+    <p>Demo Switch Case Area</p>
+    <ul [ngSwitch]="eventV">
+        <li *ngSwitchCase="'Event In'">
+            <p>Event In</p>
+        </li>
+        <li *ngSwitchCase="'Event Out'">
+            <p>Event Out</p>
+        </li>
+        <li *ngSwitchCase="'Event Double Click'">
+            <p>Event Double Click</p>
+        </li>
+        <li *ngSwitchCase="'Event Copy'">
+            <p>Event Copy</p>
+        </li>
+        <li *ngSwitchDefault>
+            <p>No Event</p>
+        </li>
+    </ul>
+</div>
+
+<div>{{clickS}}</div>
