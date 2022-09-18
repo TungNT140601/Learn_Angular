@@ -9,6 +9,7 @@ import { Products } from '../products';
 })
 export class InsertProductComponent implements OnInit {
   public product: Product = {
+    id: 0,
     name: '',
     price: 0,
     quantity: 0
@@ -17,7 +18,7 @@ export class InsertProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  product_Ins(): void{
+  product_Ins(): void {
     Products.push(this.product);
   }
 }

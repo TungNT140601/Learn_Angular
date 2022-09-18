@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { Order_detail } from './order.detail';
 import { Product } from './product';
 import { Products } from './products';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductService {
+export class OrderDetailService {
 
   constructor() { }
-
-  getProducts(): Product[] {
-    return Products;
-  }
-  getProductById(id: number): Observable<Product> {
+  getProductById(id: number): Product {
     const product = Products.find(p => p.id === id)!;
-    return of(product);
+    return product;
   }
 }

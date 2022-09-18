@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductDescriptionPipe } from './product-description.pipe';
 import { InsertProductComponent } from './insert-product/insert-product.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
     OrderComponent,
     ProductDescriptionPipe,
     InsertProductComponent,
+    OrderDetailComponent,
     DetailProductComponent
   ],
   imports: [

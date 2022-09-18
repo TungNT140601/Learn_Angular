@@ -42,8 +42,8 @@ ng-template
         <tbody>
             <tr *ngFor="let product of products; let i = 'index + 1'">
                 <ng-container *ngIf="product.name.includes(searchS) || searchS === ''">
-                    <td>{{i}}</td>
-                    <td><a routerLink="/detail-product/{{product.name}}">{{product.name}}</a></td>
+                    <td>{{product.id}}</td>
+                    <td><a routerLink="/detail-product/{{product.id}}">{{product.name}}</a></td>
                     <!-- <td>{{product.price | currency: "VND":"symbol":"1.0"}}</td> -->
                     <!-- {{ value_expression | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] }} -->
                     <!-- x: Value, y: num of O appear after dot -->
@@ -64,7 +64,7 @@ ng-template
                         </span>
                     </td>
                     <td>
-                        <button (click)="btnClick()">Button</button>
+                        <button><a routerLink="/order-detail/{{product.id}}">Buy</a></button>
                     </td>
                     <td>
                         <span>{{ product.price| productDescription | uppercase }}</span>

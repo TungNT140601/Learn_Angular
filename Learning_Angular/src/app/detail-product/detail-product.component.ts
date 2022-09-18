@@ -9,17 +9,25 @@ import { ProductService } from '../product.service';
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent implements OnInit {
-  // public const product!: Product;
+  public product: any;
+  // product: Product = {
+  //   id: 0,
+  //   name: '',
+  //   price: 0,
+  //   quantity: 0
+  // };
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductService,
-    private location: Location
+    private productService: ProductService
   ) { }
 
   ngOnInit(): void {
+    this.getProduct();
   }
   getProduct(): void {
-    const name = this.route.snapshot.paramMap.get('name');
-    this.productService.getProductByName(name as string)
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    // this.product = this.productService.getProductById(id);
+    this.productService.getProductById(id)
+      .subscribe((product: Product) => this.product = product);
   }
 }
