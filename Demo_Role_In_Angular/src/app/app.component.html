@@ -3,11 +3,12 @@
   <nav>
     <nav class="navbar navbar-expand navbar-dark bg-dark">
       <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" routerLink="" href="#">Trang chủ</a> </li>
-        <li class="nav-item"><a class="nav-link" routerLink="download" href="#">Download</a> </li>
+        <li class="nav-item"><a class="nav-link" routerLink="home" href="#">Trang chủ</a> </li>
+        <li class="nav-item" *ngIf="CheckLogin()"><a class="nav-link" routerLink="download" href="#">Download</a> </li>
         <li class="nav-item"><a class="nav-link" routerLink="sign-up" href="#">Đăng ký</a> </li>
         <li class="nav-item"><a class="nav-link" routerLink="sign-in" href="#">Đăng nhập</a> </li>
-        <li class="nav-item"><a class="nav-link" routerLink="change-password" href="#">Đổi pass</a> </li>
+        <li class="nav-item" *ngIf="CheckLogin()"><a class="nav-link" routerLink="change-password" href="#">Đổi pass</a></li>
+        <li class="nav-item" *ngIf="CheckAdmin()"><a class="nav-link" routerLink="admin-page" href="#">Admin Page</a></li>
       </ul>
     </nav>
   </nav>

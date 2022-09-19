@@ -10,6 +10,8 @@ import { DownloadComponent } from './components/download/download.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { UserPageComponent } from './components/user-page/user-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,9 @@ import { ChangePasswordComponent } from './components/change-password/change-pas
     DownloadComponent,
     SignUpComponent,
     SignInComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    AdminPageComponent,
+    UserPageComponent
   ],
   imports: [
     BrowserModule,
