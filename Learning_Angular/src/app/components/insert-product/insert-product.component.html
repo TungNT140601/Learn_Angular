@@ -1,0 +1,21 @@
+<h2>Insert a Product</h2>
+<h3 style="color: red;" *ngIf="msg">{{msg}}</h3>
+<table>
+    <tr>
+        <td>Id :</td>
+        <td><input [(ngModel)]="product.id"></td>
+    </tr>
+    <tr>
+        <td>Name :</td>
+        <td><input [(ngModel)]="product.name"></td>
+    </tr>
+    <tr>
+        <td>Price :</td>
+        <td><input [(ngModel)]="product.price" type="number" min="0"></td>
+    </tr>
+    <tr>
+        <td>Quantity :</td>
+        <td><input [(ngModel)]="product.quantity" type="number" min="0" ></td>
+    </tr>
+</table>
+<button (click)="product_Ins()">Add</button>

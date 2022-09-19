@@ -1,17 +1,20 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductComponent } from './product/product.component';
-import { OrderComponent } from './order/order.component';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { ProductDescriptionPipe } from './product-description.pipe';
-import { InsertProductComponent } from './insert-product/insert-product.component';
-import { OrderDetailComponent } from './order-detail/order-detail.component';
-import { DetailProductComponent } from './detail-product/detail-product.component';
-
+import { DetailProductComponent } from './components/detail-product/detail-product.component';
+import { HomeComponent } from './components/home/home.component';
+import { HomeAdminComponent } from './components/home/home_admin.component';
+import { InsertProductComponent } from './components/insert-product/insert-product.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { OrderComponent } from './components/order/order.component';
+import { ProductComponent } from './components/product/product.component';
+import { RemoveOrderDetailComponent } from './components/remove-order-detail/remove-order-detail.component';
+import { RemoveProductComponent } from './components/remove-product/remove-product.component';
+import { ProductDescriptionPipe } from './_pipe/product-description.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,12 @@ import { DetailProductComponent } from './detail-product/detail-product.componen
     ProductDescriptionPipe,
     InsertProductComponent,
     OrderDetailComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    RemoveProductComponent,
+    RemoveOrderDetailComponent,
+    LoginComponent,
+    HomeComponent,
+    HomeAdminComponent
   ],
   imports: [
     BrowserModule,

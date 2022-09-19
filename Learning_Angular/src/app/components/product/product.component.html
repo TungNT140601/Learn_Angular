@@ -1,0 +1,77 @@
+<h2 style="text-align: center;">Product Page Component</h2>
+<br />
+<table style="width: 20%;">
+    <tr>
+        <td>Search: </td>
+        <td><input [(ngModel)]="searchS" value={{searchS}} type="text" style="background-color: rgb(247, 247, 247);">
+        </td>
+    </tr>
+</table>
+<br />
+<!-- <p>Product name: {{name}}</p>
+<p>Name : </p> <input type="text" [(ngModel)]="name" [title]="'This is ' + name">
+<p>Price : </p> <input type="number" [(ngModel)]="price" [title]="name + '\'s price is: ' + price">
+<br/>
+*ngIf="Condition"
+
+<p *ngIf="price > 100000">This product is expensive!</p>
+<p *ngIf="price < 100000">This product is cheap!</p> 
+
+*ngIf="Condition; then #template_of_true_condition else #template_of_false_condition"
+ng-template
+<div *ngIf="price > 100000; then expensive; else cheap;"></div>
+<ng-template #expensive>
+    This product is expensive!
+</ng-template>
+<ng-template #cheap>
+    This product is cheap!
+</ng-template>
+<br/>
+<button (click)="resetName()">Reset</button> -->
+<div class="center-screen">
+    <table style="width: 100%;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Action</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products; let i = 'index + 1'">
+                <ng-container *ngIf="product.name.includes(searchS) || searchS === ''">
+                    <td>{{product.id}}</td>
+                    <td><a routerLink="/detail-product/{{product.id}}">{{product.name}}</a></td>
+                    <!-- <td>{{product.price | currency: "VND":"symbol":"1.0"}}</td> -->
+                    <!-- {{ value_expression | currency [ : currencyCode [ : display [ : digitsInfo [ : locale ] ] ] ] }} -->
+                    <!-- x: Value, y: num of O appear after dot -->
+                    <!-- Value_type can search google for more information  -->
+                    <!-- ...:...:... -->
+                    <!-- Ký tự đầu : Biến : Kiểu hiển thị biến -->
+                    <!--  -->
+                    <!-- Pipe: định dạng dữ liệu cho giá trị suất ra view -->
+                    <!-- Có thể có các hàm -->
+                    <!-- Cú pháp: ng generate pine _tenPipe-->
+
+
+                    <td><input [(ngModel)]="product.price" min="0" style="text-align: center;"></td>
+                    <td>
+                        <span>
+                            <input [(ngModel)]="product.quantity" min="0"
+                                [ngClass]="{'product_quantity': product.quantity == 0}" style="text-align: center;">
+                        </span>
+                    </td>
+                    <td>
+                        <button><a routerLink="/order-detail/{{product.id}}">Buy</a></button>
+                    </td>
+                    <td>
+                        <span>{{ product.price| productDescription | uppercase }}</span>
+                    </td>
+                </ng-container>
+            </tr>
+        </tbody>
+    </table>
+</div>

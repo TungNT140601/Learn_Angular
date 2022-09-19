@@ -1,4 +1,5 @@
-import { Product } from "./product";
+import { Product } from "./_models/product";
+
 
 export const Products: Product[] = [
     { id: 1, name: 'Product1', price: 200000, quantity: 0 },
