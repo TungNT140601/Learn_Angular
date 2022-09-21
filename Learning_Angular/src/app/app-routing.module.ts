@@ -10,6 +10,7 @@ import { OrderComponent } from './components/order/order.component';
 import { ProductComponent } from './components/product/product.component';
 import { RemoveOrderDetailComponent } from './components/remove-order-detail/remove-order-detail.component';
 import { RemoveProductComponent } from './components/remove-product/remove-product.component';
+import { AdminGuard } from './guards/admin.guard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent },
   { path: 'order', component: OrderComponent },
   { path: 'order-detail/:id', component: OrderDetailComponent },
-  { path: 'insert-product', component: InsertProductComponent },
+  { path: 'insert-product', component: InsertProductComponent, canActivate: [AdminGuard] },
   { path: 'detail-product/:id', component: DetailProductComponent },
   { path: 'remove-product/:id', component: RemoveProductComponent },
   { path: 'remove-order/:id', component: RemoveOrderDetailComponent },

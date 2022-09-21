@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/_models/user';
+import { LoginService } from 'src/app/_services/login.service';
 import { ProductService } from 'src/app/_services/product.service';
 @Component({
   selector: 'app-product',
@@ -14,14 +17,20 @@ export class ProductComponent implements OnInit {
   public eventV: string = "Event 1";
   public searchS: string = '';
   public clickS: string = '';
+  public user: User = this.loginService.User;
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private loginService: LoginService,
+    private router:Router
   ) { }
 
   public ngOnInit(): void {
     // console.log('product = ' + this.product.findIndex(x => x == 'Product2'));
     this.lifeCyle += 'ngOnInit() ';
     this.products = this.productService.getProducts();
+    if(this.user.username == ''){
+      this.router.navigateByUrl('');
+    }
   }
   // public resetName(): void {
   //   console.log("resetName func is running");

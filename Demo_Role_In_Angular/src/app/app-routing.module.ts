@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   {
     path: 'admin-page', component: AdminPageComponent,
-    canActivate: [AdminGuard]
+    // canActivate: [AdminGuard]
   },
   {
     path: 'download', component: DownloadComponent,

@@ -10,22 +10,23 @@ import { LoginService } from 'src/app/_services/login.service';
 })
 export class LoginComponent implements OnInit {
   public user: User = {
-    username: '', password: ''
-  }
+    username: '',
+    password: ''
+  };
   public msg = '';
   constructor(
     private route: ActivatedRoute,
     private loginService: LoginService,
-    private routE:Router
+    private routE: Router
   ) { }
 
   ngOnInit(): void {
   }
   checkLogin(): void {
-    if(this.loginService.checkLogin(this.user.username,this.user.password)){
+    if (this.loginService.checkLogin(this.user.username, this.user.password)) {
       this.msg = 'Login Success';
       this.routE.navigate(['/product']);
-    }else{
+    } else {
       this.msg = 'Login Error';
       this.routE.navigate(['']);
     }
